@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "741500030695",
+    "project_id": "habittracker-lowkeygud",
+    "storage_bucket": "habittracker-lowkeygud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741500030695:android:aa0306e27d2482c3371c42",
+        "android_client_info": {
+          "package_name": "com.lowkeygud.habittracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741500030695-q0ls1oeq8hp3s3sdmpuimmgt246rhf1d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lowkeygud.habittracker",
+            "certificate_hash": "2de1d1bc0030f55e2c4b87afc037bf3f407913c0"
+          }
+        },
+        {
+          "client_id": "741500030695-06q81pmjkpjj1dob1i4j96g9irieka1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwO4LbkalzrH59363_HHIMjfwjABc1IoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741500030695-06q81pmjkpjj1dob1i4j96g9irieka1b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "741500030695-2to228n1rcti0vnontdep98nklql83fm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lowkeygud.habittracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
