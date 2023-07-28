@@ -117,13 +117,13 @@ class _UpdateHabitState extends State<UpdateHabit> {
   ];
 
   final List<String> _daysOfWeek = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
+    'Sun'.tr,
+    'Mon'.tr,
+    'Wed'.tr,
+    'Tue'.tr,
+    'Thu'.tr,
+    'Fri'.tr,
+    'Sat'.tr,
   ];
 
   @override
@@ -293,7 +293,7 @@ class _UpdateHabitState extends State<UpdateHabit> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(value,
+                                                  Text(value.tr,
                                                       style: HTextTheme
                                                           .normalTextStyle),
                                                   const SizedBox(

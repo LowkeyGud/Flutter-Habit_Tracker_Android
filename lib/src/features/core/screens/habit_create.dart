@@ -58,13 +58,13 @@ class _HabitCreateOneScreenState extends State<HabitCreateOneScreen> {
   }
 
   final List<String> _dropdownItems = [
-    'Fun'.tr,
-    'Relations'.tr,
-    'Mindfulness'.tr,
-    'Finances'.tr,
-    'Skill'.tr,
-    'Health'.tr,
-    'Productivity'.tr
+    'Fun',
+    'Relations',
+    'Mindfulness',
+    'Finances',
+    'Skill',
+    'Health',
+    'Productivity'
   ];
 
   final List<String> _daysOfWeek = [
@@ -222,12 +222,12 @@ class _HabitCreateOneScreenState extends State<HabitCreateOneScreen> {
                                           break;
                                       }
                                       return DropdownMenuItem<String>(
-                                        value: value,
+                                        value: value.tr,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(value,
+                                            Text(value.tr,
                                                 style:
                                                     HTextTheme.normalTextStyle),
                                             const SizedBox(

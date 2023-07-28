@@ -148,7 +148,7 @@ class HabitDetail extends StatelessWidget {
                 list('Habit Selected Days'.tr, selectedDays),
                 list('Start Date'.tr,
                     DateFormat('yyyy-MM-dd HH:mm').format(startDate.toDate())),
-                list('Goal Date'.tr,
+                list('lbl_goal_date'.tr,
                     DateFormat('yyyy-MM-dd').format(goalDate!.toDate())),
                 StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                   stream: habitsCollection.snapshots(),
@@ -187,7 +187,9 @@ class HabitDetail extends StatelessWidget {
                     final habitHeatMap = Column(
                       children: [
                         const SizedBox(height: 30),
-                        Text('Habit name: $habitName'),
+                        Text(
+                          '${'Habit Name'.tr}: $habitName',
+                        ),
                         heatMap,
                       ],
                     );

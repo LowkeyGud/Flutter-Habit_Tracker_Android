@@ -12,12 +12,8 @@ class HabitController extends GetxController {
           .collection('User')
           .doc(user!.email)
           .collection('Habit');
-  // final habitSnapshot = await habitsCollection.get();
-  // Process the habitSnapshot as needed
-
-// User/AaLXt2v4IsNaLWtvFyEg/Habit
+          
   final RxList<HabitModel> habits = RxList<HabitModel>();
-  // final habits = <HabitModel>[].obs;
 
   @override
   void onInit() {
@@ -28,12 +24,6 @@ class HabitController extends GetxController {
   Future<void> fetchHabits() async {
     try {
       final QuerySnapshot querySnapshot = await habitsCollection.get();
-      for (var doc in querySnapshot.docs) {
-        String documentId = doc.id;
-        print('Document ID: $documentId');
-      }
-
-      print("Here it is ${querySnapshot.docs.length}");
       if (querySnapshot.docs.isNotEmpty) {
         habits.value = querySnapshot.docs
             .map((doc) => HabitModel.fromFirestore(doc))

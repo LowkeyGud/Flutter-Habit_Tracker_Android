@@ -246,60 +246,57 @@ class _ChecklistState extends State<Checklist> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                      padding:
-                                                          getPadding(right: 30),
-                                                      child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceEvenly,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomButton(
-                                                                // variant:
-                                                                //     ButtonVariant
-                                                                //         .FillRed50,
-                                                                height:
-                                                                    getVerticalSize(
-                                                                        28),
-                                                                width:
-                                                                    getHorizontalSize(
-                                                                        79),
-                                                                text: habit
-                                                                    .category,
-                                                                shape: ButtonShape
-                                                                    .RoundedBorder12,
-                                                                padding:
-                                                                    ButtonPadding
-                                                                        .PaddingAll6,
-                                                                fontStyle:
-                                                                    ButtonFontStyle
-                                                                        .PJSm12),
-                                                            Text(
-                                                              habit.name,
-                                                              maxLines: null,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .left,
-                                                              style: AppStyle
-                                                                  .txtPJSSemiBold18Gray900
-                                                                  .copyWith(
-                                                                letterSpacing:
-                                                                    getHorizontalSize(
-                                                                        0.09),
-                                                              ),
-                                                            ),
-                                                            OutlinedButton(
-                                                                style: HOutlinedButtontheme
+                                                  Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        CustomButton(
+                                                            // variant:
+                                                            //     ButtonVariant
+                                                            //         .FillRed50,
+                                                            height:
+                                                                getVerticalSize(
+                                                                    28),
+                                                            width:
+                                                                getHorizontalSize(
+                                                                    79),
+                                                            text: habit
+                                                                .category.tr,
+                                                            shape: ButtonShape
+                                                                .RoundedBorder12,
+                                                            padding:
+                                                                ButtonPadding
+                                                                    .PaddingAll6,
+                                                            fontStyle:
+                                                                ButtonFontStyle
+                                                                    .PJSm12),
+                                                        Text(
+                                                          habit.name,
+                                                          maxLines: null,
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: AppStyle
+                                                              .txtPJSSemiBold18Gray900
+                                                              .copyWith(
+                                                            letterSpacing:
+                                                                getHorizontalSize(
+                                                                    0.09),
+                                                          ),
+                                                        ),
+                                                        OutlinedButton(
+                                                            style:
+                                                                HOutlinedButtontheme
                                                                     .cancelTheme,
-                                                                onPressed: () =>
-                                                                    toggleHabitCompletion(
-                                                                        habit),
-                                                                child: const Text(
-                                                                    'Complete')),
-                                                          ])),
+                                                            onPressed: () =>
+                                                                toggleHabitCompletion(
+                                                                    habit),
+                                                            child: Text(
+                                                                'Complete'.tr)),
+                                                      ]),
                                                   Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment

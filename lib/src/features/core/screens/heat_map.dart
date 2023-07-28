@@ -78,7 +78,7 @@ class _HabitHeatMapWidgetState extends State<HabitHeatMapWidget> {
                       children: [
                         const SizedBox(height: 30),
                         Text(
-                          'Habit name: $habitName',
+                          '${'Habit Name'.tr}: $habitName',
                           style: const TextStyle(fontSize: 16),
                         ),
                         heatMap,
