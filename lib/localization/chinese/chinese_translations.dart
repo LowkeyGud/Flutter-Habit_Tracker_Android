@@ -32,7 +32,8 @@ final Map<String, String> chCh = {
   "lbl_goal_date": "目标日期",
   "lbl_category": "类别",
   "lbl_task_list": "任务列表",
-  
+  "lbl_get_started": "开始",
+  "Complete": "完成",
   "lbl_select_days": "选择重复的天数",
   "lbl_update_habit": "更新习惯",
   "Delete_Habit": "删除习惯",

@@ -42,6 +42,8 @@ final Map<String, String> neNe = {
   "Morning": "बिहान",
   "Afternoon": "बेलुका",
   "Night": "राति",
+  "lbl_get_started": "सुरु गर्नुहोस्",
+  "Complete": "सम्पन्न गर्नुहोस्",
   "Select_date": "मिति चयन गर्नुहोस्",
   "All_Habits_HeatMap": "सबै आदतहरूको हिटम्याप",
   "All_Habits": "सबै आदतहरू",
