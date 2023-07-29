@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class LanguageController extends GetxController {
-  RxString selectedLanguage = 'en_US'.obs;
+  RxString selectedLanguage = 'English'.obs;
 
   void changeLanguage(String languageCode) {
     selectedLanguage.value = languageCode;
