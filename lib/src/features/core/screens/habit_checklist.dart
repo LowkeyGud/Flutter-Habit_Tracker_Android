@@ -48,9 +48,10 @@ class _ChecklistState extends State<Checklist> {
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
   bool _isOnline = true;
   final storage = GetStorage();
-  DateTime lastOpenedDate = DateTime.now();
+  // DateTime lastOpenedDate = DateTime.now();
 
   final user = AuthenticationRepository().auth.currentUser;
+
   CollectionReference<Map<String, dynamic>> get habitsCollection =>
       FirebaseFirestore.instance
           .collection('User')
@@ -65,7 +66,7 @@ class _ChecklistState extends State<Checklist> {
     checkConnectivity();
   }
 
-  Future<void> checkAndUpdateCompleted() async {
+  Future<void> checkAndUpdateCompletedd() async {
     final box = GetStorage();
 
     // Get the last stored date
@@ -85,6 +86,29 @@ class _ChecklistState extends State<Checklist> {
       // Store today's date as the last date if it's the first time the app is opened
       box.write('lastDate', selectedDate);
     }
+  }
+
+  Future<void> checkAndUpdateCompleted() async {
+    final documentRef =
+        FirebaseFirestore.instance.collection('User').doc(user!.email);
+
+    final documentSnapshot = await documentRef.get();
+    DateTime currentDate = DateTime.now();
+
+    if (documentSnapshot.exists) {
+      final data = documentSnapshot.data();
+      if (data != null && data['lastOpenedDate'] is Timestamp) {
+        // Assuming that the date in Firebase is stored as a Firestore Timestamp.
+        Timestamp firebaseDate = data['lastOpenedDate'];
+
+        // Check if the date is not today.
+        if (firebaseDate.toDate().difference(currentDate).inDays != 0) {
+          updateAllHabits();
+        }
+      }
+    }
+    // If the document does not exist, add the current date to Firebase.
+    documentRef.update({'lastOpenedDate': Timestamp.fromDate(currentDate)});
   }
 
   Future<void> updateAllHabits() async {
