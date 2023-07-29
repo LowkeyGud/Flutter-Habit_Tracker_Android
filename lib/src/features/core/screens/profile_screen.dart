@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:habittracker/language_controller.dart';
 import 'package:habittracker/src/features/core/screens/dialogs/logout_dialog.dart';
@@ -7,22 +8,70 @@ import 'package:flutter/material.dart';
 import 'package:habittracker/src/app_export.dart';
 import 'package:habittracker/src/utils/theme/widget_theme/custom_button.dart';
 
+class DropdownController extends GetxController {
+  RxString selectedOption = 'English'.obs;
+  List<String> options = [
+    'English',
+    'नेपाली',
+    '中国人',
+    'Español',
+    'Deutsch',
+    'Português',
+    'Русский',
+    'हिन्दी',
+    '日本語',
+    'العربية',
+    'বাংলা',
+  ];
+}
+
 class LanguageSwitch extends StatelessWidget {
   LanguageSwitch({super.key});
 
   final LanguageController languageController = Get.find();
+  final DropdownController _dropdownController = Get.put(DropdownController());
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => SwitchListTile(
-          title: Text('Switch_Language'.tr),
-          value: languageController.selectedLanguage.value == 'en_US',
-          onChanged: (value) {
-            final newLanguage = value ? 'en_US' : 'ch_simplified';
-            languageController.changeLanguage(newLanguage);
-            Get.updateLocale(Locale(newLanguage));
-          },
-        ));
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Obx(
+        () => DropdownButtonHideUnderline(
+          child: DropdownButton<String>(
+            value: _dropdownController.selectedOption.value,
+            onChanged: (String? newValue) {
+              _dropdownController.selectedOption.value = newValue!;
+              languageController.changeLanguage(newValue);
+              Get.updateLocale(Locale(newValue));
+            },
+            items: _dropdownController.options.map((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            icon: const Icon(Icons.keyboard_arrow_down),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+            ),
+            isExpanded: true,
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -39,6 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String fullname = '';
 
   String email = '';
+  String photoURL = '';
 
   @override
   void initState() {
@@ -57,6 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() {
           fullname = userData['FullName'];
           email = userData['Email'];
+          photoURL = userData['Photo-Url'];
         });
       } else {
         // Document doesn't exist
@@ -90,7 +141,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               shape: BoxShape.circle,
                               color: Color.fromARGB(255, 255, 214, 211),
                             ),
-                            child: const Icon(Icons.person_3),
+                            child: photoURL.isNotEmpty
+                                ? CircleAvatar(
+                                    radius: 10,
+                                    backgroundColor: Colors.transparent,
+                                    child: ClipOval(
+                                      child: CachedNetworkImage(
+                                        imageUrl: photoURL,
+                                        placeholder: (context, url) =>
+                                            const CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.person_3),
                           ),
                           title: Text(
                             fullname,
@@ -108,6 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           onTap: () {},
                         ),
+                        const SizedBox(height: 15.0),
                         LanguageSwitch(),
                         CustomButton(
                             height: getVerticalSize(60),
