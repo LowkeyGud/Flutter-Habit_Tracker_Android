@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:habittracker/src/app_export.dart';
+import 'package:habittracker/src/common_widgets/core/date_formatter.dart';
 import 'package:habittracker/src/features/core/screens/heat_map.dart';
 import 'package:habittracker/src/utils/theme/widget_theme/outlined_button.dart';
 
@@ -32,6 +33,11 @@ class _NotCalendarState extends State<NotCalendar> {
             TextButton(
               onPressed: _selectDate,
               child: Text('Select_date'.tr),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Habit Status of ${formatDate(_selectedDate)}',
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
             ),
             const SizedBox(height: 16),
             StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
