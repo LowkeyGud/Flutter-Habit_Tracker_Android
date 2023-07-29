@@ -36,7 +36,7 @@ class _NotCalendarState extends State<NotCalendar> {
             ),
             const SizedBox(height: 16),
             Text(
-              'Habit Status of ${formatDate(_selectedDate)}',
+              '${'Date'.tr}: ${formatDate(_selectedDate)}',
               style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
             ),
             const SizedBox(height: 16),
