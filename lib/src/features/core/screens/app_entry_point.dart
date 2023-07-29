@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:habittracker/src/features/core/screens/habit_create.dart';
 import 'package:habittracker/src/features/core/screens/habit_checklist.dart';
 import 'package:habittracker/src/features/core/screens/habit_list.dart';
-import 'package:habittracker/src/features/core/screens/not_calendar.dart';
+import 'package:habittracker/src/features/core/screens/habit_calendar.dart';
 import 'package:habittracker/src/features/core/screens/profile_screen.dart';
 
 import '../../../app_export.dart';
