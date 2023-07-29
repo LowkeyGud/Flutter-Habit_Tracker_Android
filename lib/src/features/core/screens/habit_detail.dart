@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:habittracker/src/app_export.dart';
 import 'package:habittracker/src/features/core/screens/habit_update.dart';
 import 'package:habittracker/src/features/core/screens/heatmap.dart';
@@ -142,10 +143,10 @@ class HabitDetail extends StatelessWidget {
                 ),
                 list('Habit Name'.tr, habitName),
                 list('Habit Description'.tr, description),
-                list('Habit Subtasks'.tr, subTasks),
+                buildTopicListTile('Habit Subtasks'.tr, subTasks),
                 list('Habit Category'.tr, category),
                 list('Habit Time'.tr, habitTime),
-                list('Habit Selected Days'.tr, selectedDays),
+                buildTopicListTile('Habit Selected Days'.tr, selectedDays),
                 list('Start Date'.tr,
                     DateFormat('yyyy-MM-dd HH:mm').format(startDate.toDate())),
                 list('lbl_goal_date'.tr,
@@ -189,6 +190,11 @@ class HabitDetail extends StatelessWidget {
                         const SizedBox(height: 30),
                         Text(
                           '${'Habit Name'.tr}: $habitName',
+                          style: GoogleFonts.poppins(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                            color: const Color.fromARGB(255, 255, 0, 0),
+                          ),
                         ),
                         heatMap,
                       ],
@@ -207,32 +213,89 @@ class HabitDetail extends StatelessWidget {
     );
   }
 
-  Container list(String field, var data) {
-    return Container(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            field,
-            style: const TextStyle(
-                // color: Colors.white, // Text color
-                fontWeight: FontWeight.bold,
-                fontSize: 20),
-          ),
-          const SizedBox(width: 8.0),
-          Flexible(
-            flex: 1,
-            child: Text(
-              data.toString().tr,
-              style: const TextStyle(
-                  // color: Colors.white,
-                  // fontWeight: FontWeight.bold,
+  Card list(String topic, var details) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      color: const Color.fromARGB(255, 255, 255, 255),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    topic,
+                    style: GoogleFonts.poppins(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: const Color.fromARGB(255, 255, 0, 0),
+                    ),
                   ),
+                  const SizedBox(height: 8),
+                  Text(
+                    details,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Card buildTopicListTile(String topic, List<dynamic>? details) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      color: const Color.fromARGB(255, 255, 255, 255),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    topic,
+                    style: GoogleFonts.poppins(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: const Color.fromARGB(255, 255, 0, 0),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: details!
+                        .map(
+                          (item) => Text(
+                            '• $item',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
