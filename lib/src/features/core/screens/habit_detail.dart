@@ -46,6 +46,62 @@ class HabitDetail extends StatelessWidget {
     }
   }
 
+  final _confirmationController = TextEditingController();
+  final _confirmationKey = GlobalKey<FormState>();
+
+  void _showDeleteConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('❌Delete Confirmation❌', style: TextStyle(fontSize: 15.0)),
+              SizedBox(height: 19),
+              Text(
+                'Details of this habit will be lost forever',
+                style: TextStyle(fontSize: 15.0),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          content: Form(
+            key: _confirmationKey,
+            child: TextFormField(
+              controller: _confirmationController,
+              decoration:
+                  const InputDecoration(labelText: 'Type "confirm" to delete'),
+              validator: (value) {
+                if (value!.trim().toLowerCase() != 'confirm') {
+                  return 'Invalid confirmation';
+                }
+                return null;
+              },
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
+            ),
+            OutlinedButton(
+              onPressed: () async {
+                if (_confirmationKey.currentState!.validate()) {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  await deleteHabit(habitsRef);
+                  // Close the dialog
+                }
+              },
+              child: const Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DocumentSnapshot>(
@@ -132,9 +188,8 @@ class HabitDetail extends StatelessWidget {
                         height: 50,
                         child: OutlinedButton(
                             style: HOutlinedButtontheme.cancelTheme,
-                            onPressed: () async {
-                              Navigator.pop(context);
-                              await deleteHabit(habitsRef);
+                            onPressed: () {
+                              _showDeleteConfirmationDialog(context);
                             },
                             child: Text('Delete_Habit'.tr)),
                       ),
