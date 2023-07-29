@@ -88,36 +88,6 @@ class _NotCalendarState extends State<NotCalendar> {
     }
   }
 
-  // void _selectDate() async {
-  //   final DateTime? picked = await showDialog(
-  //     context: context,
-  //     builder: (context) {
-  //       return AlertDialog(
-  //         title: const Text('Select Date'),
-  //         content: Column(
-  //           children: [
-  //             // const SizedBox(height: 8),
-  //             CalendarDatePicker(
-  //               initialDate: _selectedDate,
-  //               firstDate: DateTime(2023),
-  //               lastDate: DateTime(2100),
-  //               onDateChanged: (date) {
-  //                 Navigator.of(context).pop(date);
-  //               },
-  //             ),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-
-  //   if (picked != null && picked != _selectedDate) {
-  //     setState(() {
-  //       _selectedDate = picked;
-  //     });
-  //   }
-  // }
-
   String _getWeekdayString(int weekday) {
     switch (weekday) {
       case DateTime.monday:
