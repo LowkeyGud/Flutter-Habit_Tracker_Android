@@ -189,7 +189,7 @@ class HabitDetail extends StatelessWidget {
                       children: [
                         const SizedBox(height: 30),
                         Text(
-                          '${'Habit Name'.tr}: $habitName',
+                          ' $habitName ${'Heatmap'.tr}',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             fontWeight: FontWeight.w500,
