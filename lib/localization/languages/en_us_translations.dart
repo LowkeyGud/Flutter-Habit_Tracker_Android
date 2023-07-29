@@ -21,10 +21,10 @@ final Map<String, String> enUs = {
   "lbl_home": "Home",
   "msg_are_you_sure_you": "Are you sure you want to logout?",
   "lbl_cancel": "Cancel",
-  
+
   //Here
-  "lbl_get_started":"Get Started",
-  "Complete":"Complete",
+  "lbl_get_started": "Get Started",
+  "Complete": "Complete",
 
   "lbl_log_out": "Log Out",
   "lbl_goal_date": "Goal Date",
@@ -85,4 +85,5 @@ final Map<String, String> enUs = {
   'Switch_Language': 'Switch Language',
   'No': 'No',
   'Yes': 'Yes',
+  'Date': 'Date',
 };

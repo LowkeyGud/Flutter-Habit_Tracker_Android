@@ -78,4 +78,5 @@ final Map<String, String> neNe = {
   'Switch_Language': 'भाषा परिवर्तन गर्नुहोस्',
   'No': 'छैन',
   'Yes': 'हो',
+  'Date': 'मिति',
 };
