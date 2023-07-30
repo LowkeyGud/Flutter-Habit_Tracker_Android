@@ -93,22 +93,27 @@ class _ChecklistState extends State<Checklist> {
         FirebaseFirestore.instance.collection('User').doc(user!.email);
 
     final documentSnapshot = await documentRef.get();
-    DateTime currentDate = DateTime.now();
+    DateTime currentTimestamp = DateTime.now();
 
     if (documentSnapshot.exists) {
       final data = documentSnapshot.data();
       if (data != null && data['lastOpenedDate'] is Timestamp) {
-        // Assuming that the date in Firebase is stored as a Firestore Timestamp.
-        Timestamp firebaseDate = data['lastOpenedDate'];
+        // The date in Firebase is stored as a Firestore Timestamp.
+        Timestamp firebaseTimestamp = data['lastOpenedDate'];
+        DateTime firebaseDT = firebaseTimestamp.toDate();
 
-        // Check if the date is not today.
-        if (firebaseDate.toDate().difference(currentDate).inDays != 0) {
+        DateTime currentDate = DateTime(currentTimestamp.year,
+            currentTimestamp.month, currentTimestamp.day);
+        DateTime firebaseDate =
+            DateTime(firebaseDT.year, firebaseDT.month, firebaseDT.day);
+
+        if (currentDate != firebaseDate) {
           updateAllHabits();
         }
       }
     }
     // If the document does not exist, add the current date to Firebase.
-    documentRef.update({'lastOpenedDate': Timestamp.fromDate(currentDate)});
+    documentRef.update({'lastOpenedDate': currentTimestamp});
   }
 
   Future<void> updateAllHabits() async {
