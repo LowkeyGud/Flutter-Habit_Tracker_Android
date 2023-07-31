@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animate_gradient/animate_gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_storage/get_storage.dart';
@@ -237,7 +238,9 @@ class _ChecklistState extends State<Checklist> {
                       child: Text(
                         habitTime.tr,
                         style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
                       ),
                     ),
                   ),
@@ -257,7 +260,7 @@ class _ChecklistState extends State<Checklist> {
                               // height: getVerticalSize(220),
                               width: double.infinity,
                               padding: getPadding(
-                                  left: 16, top: 14, right: 16, bottom: 14),
+                                  left: 10, top: 14, right: 10, bottom: 14),
                               decoration: AppDecoration.fillWhiteA700.copyWith(
                                   borderRadius:
                                       BorderRadiusStyle.roundedBorder16),
@@ -278,15 +281,12 @@ class _ChecklistState extends State<Checklist> {
                                                   Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
-                                                              .spaceEvenly,
+                                                              .spaceBetween,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
                                                         CustomButton(
-                                                            // variant:
-                                                            //     ButtonVariant
-                                                            //         .FillRed50,
                                                             height:
                                                                 getVerticalSize(
                                                                     28),
@@ -326,6 +326,7 @@ class _ChecklistState extends State<Checklist> {
                                                             child: Text(
                                                                 'Complete'.tr)),
                                                       ]),
+                                                  const SizedBox(height: 10.0),
                                                   Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
@@ -346,7 +347,7 @@ class _ChecklistState extends State<Checklist> {
                                                                         null,
                                                                     textAlign:
                                                                         TextAlign
-                                                                            .left,
+                                                                            .center,
                                                                     style: AppStyle
                                                                         .txtPJSm14Gray600
                                                                         .copyWith(
@@ -439,10 +440,32 @@ class _ChecklistState extends State<Checklist> {
           Padding(
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: Center(
-              child: Text(
-                'completed_habits'.tr,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              child: SizedBox(
+                width: 270.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: AnimateGradient(
+                    primaryColors: const [
+                      Colors.pink,
+                      Colors.pinkAccent,
+                      Colors.white,
+                    ],
+                    secondaryColors: const [
+                      Colors.white,
+                      Color.fromARGB(255, 255, 142, 142),
+                      Color.fromARGB(255, 255, 195, 195),
+                    ],
+                    child: Center(
+                      child: Text(
+                        'completed_habits'.tr,
+                        style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 0, 0, 0)),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -460,7 +483,7 @@ class _ChecklistState extends State<Checklist> {
                       // height: getVerticalSize(220),
                       width: double.infinity,
                       padding:
-                          getPadding(left: 16, top: 14, right: 16, bottom: 14),
+                          getPadding(left: 10, top: 14, right: 10, bottom: 14),
                       decoration: AppDecoration.fillWhiteA700.copyWith(
                           borderRadius: BorderRadiusStyle.roundedBorder16),
                       child: Stack(alignment: Alignment.topRight, children: [
@@ -476,14 +499,11 @@ class _ChecklistState extends State<Checklist> {
                                     children: [
                                       Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
                                             CustomButton(
-                                                // variant:
-                                                //     ButtonVariant
-                                                //         .FillRed50,
                                                 height: getVerticalSize(28),
                                                 width: getHorizontalSize(79),
                                                 text: habit.category.tr,
@@ -510,7 +530,7 @@ class _ChecklistState extends State<Checklist> {
                                                 onPressed: () {},
                                                 child: Text('completed'.tr)),
                                           ]),
-                                      const SizedBox(height: 10),
+                                      const SizedBox(height: 14.0),
                                       Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.stretch,
@@ -524,7 +544,7 @@ class _ChecklistState extends State<Checklist> {
                                                     Text(habit.subTasks[i],
                                                         maxLines: null,
                                                         textAlign:
-                                                            TextAlign.left,
+                                                            TextAlign.center,
                                                         style: AppStyle
                                                             .txtPJSm14Gray600
                                                             .copyWith(
@@ -561,8 +581,8 @@ class _ChecklistState extends State<Checklist> {
                                                             overflow:
                                                                 TextOverflow
                                                                     .ellipsis,
-                                                            textAlign:
-                                                                TextAlign.left,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             style: AppStyle
                                                                 .txtPJSm14Gray900
                                                                 .copyWith(
