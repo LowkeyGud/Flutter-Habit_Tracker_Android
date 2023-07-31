@@ -70,8 +70,8 @@ class _HabitCreateOneScreenState extends State<HabitCreateOneScreen> {
   final List<String> _daysOfWeek = [
     'Sun'.tr,
     'Mon'.tr,
-    'Wed'.tr,
     'Tue'.tr,
+    'Wed'.tr,
     'Thu'.tr,
     'Fri'.tr,
     'Sat'.tr,

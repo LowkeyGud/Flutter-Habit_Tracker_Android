@@ -119,8 +119,8 @@ class _UpdateHabitState extends State<UpdateHabit> {
   final List<String> _daysOfWeek = [
     'Sun'.tr,
     'Mon'.tr,
-    'Wed'.tr,
     'Tue'.tr,
+    'Wed'.tr,
     'Thu'.tr,
     'Fri'.tr,
     'Sat'.tr,
@@ -624,7 +624,7 @@ class _UpdateHabitState extends State<UpdateHabit> {
                           width: getHorizontalSize(327),
                           text: "lbl_update".tr,
                           margin: getMargin(bottom: 3),
-                          onTap: () async => await onTapCreate(),
+                          onTap: () async => await onTapUpdate(),
                           alignment: Alignment.bottomCenter,
                         )
                       ],
@@ -641,7 +641,7 @@ class _UpdateHabitState extends State<UpdateHabit> {
   /// The [HabitCreatedDialog] widget is created with a new
   /// instance of the [HabitCreatedController],
   /// which is obtained using the Get.put() method.
-  onTapCreate() async {
+  onTapUpdate() async {
     if (_selectedDays.isEmpty) {
       setState(() {
         _selectedDaysError = 'Please select at least one day';
