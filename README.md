@@ -16,7 +16,7 @@ Welcome to Habit Tracker, a simple app to track your everyday habits!
 
 ## Installation
 
-You can download the latest APK for Awesome App from the following link:
+You can download the latest APK for Habit Tracker from the following link:
 
 [Download Habit Tracker App](https://www.mediafire.com/file/17cqf153yxdfze9/habit-tracker.apk/file)
 
@@ -62,9 +62,9 @@ User's Full Name , Email and Password are saved in cloud firestore database alon
 
 ## Contribution
 
-Please be aware that the current codebase doesnot not follow the conventional MVC architecture or strict OOP principles.
+**Please be aware that the current codebase doesnot not follow the conventional MVC architecture or strict OOP principles.**
 
-So this repository is not open to external contributions or pull requests. The purpose of sharing this code is for educational or informational purposes only.
+**So this repository is not open to external contributions or pull requests. The purpose of sharing this code is for educational or informational purposes only.**
 
 ---
 
