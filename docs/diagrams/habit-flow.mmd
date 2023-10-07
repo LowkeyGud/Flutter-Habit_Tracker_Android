@@ -1,0 +1,10 @@
+%%{init: {"theme": "default"}}%%
+flowchart TD
+  ONBOARD["Onboarding + intro<br/>liquid swipe"] --> AUTH["Login / signup / OTP<br/>Firebase Auth + Google"]
+  AUTH --> USERDOC["User document<br/>Firestore"]
+  USERDOC --> CHECK["Habit checklist<br/>CRUD + delete confirm"]
+  CHECK --> CAL["Calendar view<br/>table_calendar"]
+  CHECK --> HEAT["Heatmap streaks<br/>heatmap calendar"]
+  REPO["auth_repo + user_repo"] <--> FIRE[("Firestore<br/>source of truth")]
+  REPO <--> CACHE["Hive + GetStorage<br/>SharedPreferences<br/>offline cache"]
+  REPO --> CHECK
