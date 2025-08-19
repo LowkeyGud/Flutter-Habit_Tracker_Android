@@ -60,7 +60,11 @@ User's Full Name , Email and Password are saved in cloud firestore database alon
 
 ---
 
-## Contribution
+## Contributors
+-  [@Surajj042](https://github.com/Surajj042) (Suraj Gurung)
+-  [@LowkeyGud](https://github.com/LowkeyGud) (Chandramani Regmi)
+
+This project was built in collaboration.
 
 **Please be aware that the current codebase doesnot not follow the conventional MVC architecture or strict OOP principles.**
 
