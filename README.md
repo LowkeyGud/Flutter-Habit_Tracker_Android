@@ -61,8 +61,8 @@ User's Full Name , Email and Password are saved in cloud firestore database alon
 ---
 
 ## Contributors
-- - [@Surajj042](https://github.com/Surajj042) (Suraj Gurung)
-- - [@LowkeyGud](https://github.com/LowkeyGud) (Chandramani Regmi)
+-  [@Surajj042](https://github.com/Surajj042) (Suraj Gurung)
+-  [@LowkeyGud](https://github.com/LowkeyGud) (Chandramani Regmi)
 
 This project was built in collaboration.
 
