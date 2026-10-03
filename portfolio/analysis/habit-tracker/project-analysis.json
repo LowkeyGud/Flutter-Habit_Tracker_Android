@@ -1,0 +1,36 @@
+{
+  "projectSlug": "habit-tracker",
+  "analyzedAt": "2026-10-03T00:00:00Z",
+  "repository": {
+    "framework": "Flutter",
+    "language": "Dart",
+    "packageManager": "pub",
+    "entryPoints": [
+      "lib/main.dart"
+    ],
+    "deploymentTargets": [
+      "android",
+      "ios",
+      "linux",
+      "macos"
+    ]
+  },
+  "architecture": {
+    "routing": {
+      "type": "GetX imperative navigation",
+      "evidence": [
+        "lib/main.dart",
+        "lib/src/repository/auth_repo/auth_repo.dart"
+      ]
+    },
+    "stateManagement": [
+      "GetX",
+      "GetStorage"
+    ],
+    "database": [
+      "Firebase Auth",
+      "Cloud Firestore"
+    ],
+    "apiStyle": "Firebase SDK integration without a custom REST layer"
+  }
+}

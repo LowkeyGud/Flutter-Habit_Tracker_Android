@@ -1,0 +1,12 @@
+{
+  "projectSlug": "habit-tracker",
+  "assetRoots": [
+    "assets/images",
+    "assets/logo"
+  ],
+  "portfolioManifest": "portfolio/projects/habit-tracker/media.yml",
+  "notes": [
+    "Repository contains UI assets and illustrations.",
+    "Dedicated portfolio screenshot captures are still needed."
+  ]
+}

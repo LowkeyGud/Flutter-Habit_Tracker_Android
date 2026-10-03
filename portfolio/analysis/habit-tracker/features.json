@@ -1,0 +1,29 @@
+{
+  "projectSlug": "habit-tracker",
+  "features": [
+    {
+      "id": "auth-flow",
+      "name": "Authentication",
+      "evidence": [
+        "lib/src/repository/auth_repo/auth_repo.dart",
+        "lib/src/repository/user_repo/user_repo.dart"
+      ]
+    },
+    {
+      "id": "habit-crud",
+      "name": "Habit create/update/delete/list",
+      "evidence": [
+        "lib/src/features/core/controller/habit_controller.dart"
+      ]
+    },
+    {
+      "id": "progress-views",
+      "name": "Checklist + calendar + heatmap views",
+      "evidence": [
+        "lib/src/features/core/screens/habit_checklist.dart",
+        "lib/src/features/core/screens/habit_calendar.dart",
+        "lib/src/features/core/screens/heat_map.dart"
+      ]
+    }
+  ]
+}

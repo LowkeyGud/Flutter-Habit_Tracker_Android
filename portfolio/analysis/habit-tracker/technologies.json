@@ -1,0 +1,14 @@
+{
+  "projectSlug": "habit-tracker",
+  "frontend": ["Flutter", "Dart"],
+  "stateManagement": ["GetX", "GetStorage"],
+  "database": ["Cloud Firestore"],
+  "authentication": ["Firebase Auth", "Google Sign-In"],
+  "notablePackages": [
+    "cloud_firestore",
+    "firebase_auth",
+    "get",
+    "flutter_heatmap_calendar",
+    "table_calendar"
+  ]
+}

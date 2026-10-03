@@ -1,0 +1,16 @@
+{
+  "projectSlug": "habit-tracker",
+  "modules": [
+    "lib/src/features/authentication",
+    "lib/src/features/core",
+    "lib/src/repository"
+  ],
+  "navigation": {
+    "appShell": "lib/src/features/core/screens/app_entry_point.dart",
+    "strategy": "Get.to/Get.offAll transitions"
+  },
+  "dataFlow": {
+    "auth": "AuthenticationRepository manages startup route decisions",
+    "habits": "HabitController reads/writes Firestore user habits"
+  }
+}
