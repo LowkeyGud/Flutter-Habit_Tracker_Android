@@ -1,0 +1,43 @@
+schemaVersion: 1.0.0
+assets:
+  - id: welcome-illustration
+    path: ../../../assets/images/welcome_images/welcome.png
+    filename: welcome.png
+    title: Welcome illustration
+    description: Introductory visual used in the welcome experience.
+    alt: Welcome screen illustration used by the app.
+    type: design-artifact
+    mimeType: image/png
+    width: null
+    height: null
+    aspectRatio: null
+    fileSize: null
+    section: overview
+    feature: onboarding
+    stage: shipped
+    source: repository-asset
+    attribution: null
+    verified: true
+    generated: false
+    approved: true
+
+  - id: splash-icon
+    path: ../../../assets/images/splash_images/splash.png
+    filename: splash.png
+    title: Splash visual
+    description: Splash image configured in app assets.
+    alt: Habit tracker splash image asset.
+    type: design-artifact
+    mimeType: image/png
+    width: null
+    height: null
+    aspectRatio: null
+    fileSize: null
+    section: hero
+    feature: launch
+    stage: shipped
+    source: repository-asset
+    attribution: null
+    verified: true
+    generated: false
+    approved: true

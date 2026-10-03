@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lowkeygud.dev/schemas/portfolio/media.schema.json",
+  "title": "Portfolio Media Manifest",
+  "type": "object",
+  "required": ["schemaVersion", "assets"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "path",
+          "filename",
+          "title",
+          "description",
+          "alt",
+          "type",
+          "mimeType",
+          "section",
+          "source",
+          "verified",
+          "generated",
+          "approved"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "filename": { "type": "string", "minLength": 1 },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "alt": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": [
+              "real-product-screenshot",
+              "design-artifact",
+              "mockup",
+              "illustration",
+              "generated-visual",
+              "architecture-diagram",
+              "video"
+            ]
+          },
+          "mimeType": { "type": "string" },
+          "width": { "type": ["integer", "null"] },
+          "height": { "type": ["integer", "null"] },
+          "aspectRatio": { "type": ["number", "null"] },
+          "fileSize": { "type": ["integer", "null"] },
+          "section": { "type": "string" },
+          "feature": { "type": ["string", "null"] },
+          "stage": { "type": ["string", "null"] },
+          "source": { "type": "string" },
+          "attribution": { "type": ["string", "null"] },
+          "verified": { "type": "boolean" },
+          "generated": { "type": "boolean" },
+          "approved": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

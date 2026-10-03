@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "project-habit-tracker",
+  "slug": "habit-tracker",
+  "title": "Habit Tracker",
+  "tagline": "Track daily habits with focused mobile workflows",
+  "description": "A Flutter-based habit tracking app with Firebase authentication, Firestore-backed habit data, and multiple progress views.",
+  "category": "productivity",
+  "type": "mobile-app",
+  "status": "active",
+  "year": 2026,
+  "dates": {
+    "start": null,
+    "end": null
+  },
+  "duration": "unknown",
+  "featured": true,
+  "visibility": "public",
+  "ownership": {
+    "type": "solo",
+    "creator": "me",
+    "role": "Designer & Developer",
+    "endToEnd": true
+  },
+  "responsibilities": [
+    "Product concept",
+    "Research",
+    "UX/UI design",
+    "Visual design",
+    "Architecture",
+    "Frontend development",
+    "Backend integration",
+    "Database modeling",
+    "API integration",
+    "Performance optimization",
+    "Testing",
+    "Deployment",
+    "Maintenance"
+  ],
+  "overview": {
+    "problem": "Users need a simple way to create habits, track completion, and review progress over time.",
+    "audience": "People building personal routines on mobile.",
+    "objectives": [
+      "Provide straightforward habit creation and management",
+      "Enable daily completion tracking",
+      "Visualize progress across days and categories"
+    ],
+    "goals": [
+      "Fast onboarding and authentication",
+      "Reliable cloud-backed storage for user habits",
+      "Clear progress interfaces"
+    ],
+    "constraints": [
+      "No verified analytics data in repository",
+      "No backend service layer beyond Firebase SDK usage"
+    ],
+    "valueProposition": "A focused habit management experience with cloud synchronization and lightweight UI flows."
+  },
+  "features": [
+    {
+      "id": "auth-flow",
+      "name": "Authentication flow",
+      "description": "Email/password and Google sign-in with onboarding and welcome transitions.",
+      "status": "done",
+      "userValue": "Users can create and access accounts quickly.",
+      "implementation": "FirebaseAuth integrated via AuthenticationRepository and UserRepo.",
+      "sourceFiles": [
+        "lib/src/repository/auth_repo/auth_repo.dart",
+        "lib/src/repository/user_repo/user_repo.dart",
+        "lib/src/features/authentication/screens"
+      ],
+      "media": [
+        "welcome-illustration"
+      ],
+      "dependencies": [
+        "firebase_auth",
+        "google_sign_in",
+        "get"
+      ]
+    },
+    {
+      "id": "habit-crud",
+      "name": "Habit management",
+      "description": "Create, update, delete, and list habits tied to authenticated users.",
+      "status": "done",
+      "userValue": "Users can maintain evolving habit plans.",
+      "implementation": "Firestore document operations in HabitController.",
+      "sourceFiles": [
+        "lib/src/features/core/controller/habit_controller.dart",
+        "lib/src/features/core/screens/habit_create.dart",
+        "lib/src/features/core/screens/habit_update.dart",
+        "lib/src/features/core/screens/habit_list.dart"
+      ],
+      "media": [
+        "splash-icon"
+      ],
+      "dependencies": [
+        "cloud_firestore",
+        "get"
+      ]
+    },
+    {
+      "id": "progress-views",
+      "name": "Progress visualization",
+      "description": "Checklist, calendar, and heat-map style progress screens.",
+      "status": "done",
+      "userValue": "Users can evaluate consistency over time.",
+      "implementation": "Dedicated core screens with calendar/heatmap dependencies.",
+      "sourceFiles": [
+        "lib/src/features/core/screens/habit_checklist.dart",
+        "lib/src/features/core/screens/habit_calendar.dart",
+        "lib/src/features/core/screens/heat_map.dart"
+      ],
+      "media": [
+        "splash-icon"
+      ],
+      "dependencies": [
+        "flutter_heatmap_calendar",
+        "table_calendar"
+      ]
+    }
+  ],
+  "design": {
+    "visualDirection": "Color-rich mobile-first interface with icon-driven navigation.",
+    "typography": [
+      "Inter",
+      "Plus Jakarta Sans"
+    ],
+    "colorPalette": [
+      "Configured in src/constants/color_after_login.dart",
+      "Configured in src/constants/color_before_login.dart"
+    ],
+    "interactionStyle": "Bottom-nav workflow with modal and route-based transitions.",
+    "designDecisions": [
+      "Single-portrait orientation in main entry",
+      "Focused four-tab navigation in app entry point"
+    ],
+    "designArtifacts": [
+      "assets/images/",
+      "assets/logo/"
+    ],
+    "inspiration": [],
+    "iterations": []
+  },
+  "technology": {
+    "frontend": [
+      "Flutter",
+      "Dart"
+    ],
+    "backend": [
+      "Firebase services"
+    ],
+    "database": [
+      "Cloud Firestore"
+    ],
+    "stateManagement": [
+      "GetX",
+      "GetStorage"
+    ],
+    "animation": [
+      "animated_text_kit",
+      "liquid_swipe"
+    ],
+    "apis": [
+      "Firebase Auth SDK",
+      "Cloud Firestore SDK"
+    ],
+    "integrations": [
+      "Google Sign-In"
+    ],
+    "deployment": [
+      "Android",
+      "iOS",
+      "Linux",
+      "macOS"
+    ],
+    "testing": [
+      "flutter_test",
+      "flutter analyze"
+    ],
+    "tools": [
+      "Flutter SDK",
+      "Dart",
+      "Firebase"
+    ]
+  },
+  "challenges": [
+    {
+      "id": "auth-to-dashboard-routing",
+      "title": "Authentication-driven startup routing",
+      "problem": "The app needs to route users to onboarding/welcome or app entry based on auth state.",
+      "difficulty": "Managing auth stream updates with screen transitions.",
+      "investigation": "Reviewing GetX lifecycle hooks and Firebase auth user stream behavior.",
+      "approaches": [
+        "Direct checks in main widget",
+        "Repository-managed reactive auth listener"
+      ],
+      "solution": "Reactive listener in AuthenticationRepository.onReady with GetX navigation.",
+      "implementation": "firebaseUser.bindStream(auth.userChanges()) and ever(firebaseUser, _setInitialScreen).",
+      "tradeoffs": [
+        "Tight coupling between repository and navigation"
+      ],
+      "outcome": "Consistent startup routing based on signed-in state.",
+      "evidence": [
+        "file:lib/src/repository/auth_repo/auth_repo.dart"
+      ],
+      "sourceFiles": [
+        "lib/src/repository/auth_repo/auth_repo.dart"
+      ]
+    }
+  ],
+  "results": {
+    "verifiedMetrics": [],
+    "verifiedOutcomes": [
+      "Functional habit CRUD screens and account flow are present in source"
+    ],
+    "feedback": [],
+    "milestones": [
+      "Cross-platform Flutter project scaffold",
+      "Firebase authentication integration",
+      "Habit tracking core screens"
+    ],
+    "learnings": [
+      "Separation between data validation and visual presentation improves reusability."
+    ],
+    "limitations": [
+      "No verified production metrics found in repository"
+    ],
+    "futureImprovements": [
+      "Add evidence-backed performance measurements",
+      "Add local screenshots specifically for portfolio case-study media"
+    ]
+  },
+  "links": {
+    "live": null,
+    "github": "https://github.com/LowkeyGud/Flutter-Habit_Tracker_Android",
+    "documentation": "https://github.com/LowkeyGud/Flutter-Habit_Tracker_Android#readme",
+    "demoVideo": null,
+    "appStore": null,
+    "googlePlay": null,
+    "related": [],
+    "external": [
+      "https://firebase.google.com/docs/flutter/setup?platform=android"
+    ]
+  },
+  "seo": {
+    "title": "Habit Tracker Flutter Project Case Study",
+    "description": "A Flutter and Firebase habit tracker project covering architecture, features, and implementation evidence.",
+    "canonicalUrl": null,
+    "ogTitle": "Habit Tracker",
+    "ogDescription": "Flutter habit tracker with Firebase-backed authentication and habit data.",
+    "ogImage": null,
+    "twitterImage": null,
+    "keywords": [
+      "flutter",
+      "habit tracker",
+      "firebase",
+      "getx",
+      "mobile app"
+    ]
+  },
+  "caseStudy": {
+    "sections": [
+      {
+        "id": "hero",
+        "type": "cinematic-hero",
+        "title": "Habit Tracker",
+        "subtitle": "A mobile routine builder with cloud-backed progress tracking",
+        "content": "Overview hero section based on verified repository facts.",
+        "media": [
+          "splash-icon"
+        ],
+        "layout": "full-screen",
+        "visualDirection": "bold-typography",
+        "interaction": "subtle-motion",
+        "evidence": [
+          "file:README.md",
+          "file:lib/main.dart"
+        ],
+        "visibility": "draft",
+        "order": 1
+      },
+      {
+        "id": "challenge",
+        "type": "challenge",
+        "title": "Challenge",
+        "subtitle": "Balancing simplicity with meaningful progress tracking",
+        "content": "Users need fast habit setup and clear long-term progress visuals.",
+        "media": [
+          "welcome-illustration"
+        ],
+        "layout": "editorial",
+        "visualDirection": "asymmetric-grid",
+        "interaction": "none",
+        "evidence": [
+          "file:lib/src/features/core/controller/habit_controller.dart"
+        ],
+        "visibility": "draft",
+        "order": 2
+      },
+      {
+        "id": "technical-deep-dive",
+        "type": "technical-deep-dive",
+        "title": "Technical Implementation",
+        "subtitle": "Flutter + GetX + Firebase",
+        "content": "Architecture and implementation details backed by code-level references.",
+        "media": [
+          "splash-icon"
+        ],
+        "layout": "two-column",
+        "visualDirection": "clean-technical",
+        "interaction": "expandable-panels",
+        "evidence": [
+          "file:pubspec.yaml",
+          "file:lib/src/repository/auth_repo/auth_repo.dart",
+          "file:lib/src/features/core/controller/habit_controller.dart"
+        ],
+        "visibility": "draft",
+        "order": 3
+      }
+    ]
+  },
+  "aiMetadata": {
+    "generated": false,
+    "generatedAt": null,
+    "generator": "human-authored",
+    "generationVersion": "1.0.0",
+    "reviewStatus": "draft",
+    "approvedAt": null
+  }
+}

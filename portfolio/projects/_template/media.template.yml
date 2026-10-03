@@ -1,0 +1,22 @@
+schemaVersion: 1.0.0
+assets:
+  - id: hero-main
+    path: media/hero/hero-main.webp
+    filename: hero-main.webp
+    title: Hero image
+    description: Main project hero visual.
+    alt: Main interface screenshot.
+    type: real-product-screenshot
+    mimeType: image/webp
+    width: null
+    height: null
+    aspectRatio: null
+    fileSize: null
+    section: hero
+    feature: null
+    stage: shipped
+    source: manual-capture
+    attribution: null
+    verified: true
+    generated: false
+    approved: false

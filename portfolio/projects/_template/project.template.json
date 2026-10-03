@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "project-<slug>",
+  "slug": "<slug>",
+  "title": "",
+  "tagline": "",
+  "description": "",
+  "category": "",
+  "type": "",
+  "status": "draft",
+  "year": "unknown",
+  "dates": { "start": null, "end": null },
+  "duration": "unknown",
+  "featured": false,
+  "visibility": "public",
+  "ownership": {
+    "type": "solo",
+    "creator": "me",
+    "role": "Designer & Developer",
+    "endToEnd": true
+  },
+  "responsibilities": [],
+  "overview": {
+    "problem": "",
+    "audience": "",
+    "objectives": [],
+    "goals": [],
+    "constraints": [],
+    "valueProposition": ""
+  },
+  "features": [],
+  "design": {
+    "visualDirection": "",
+    "typography": [],
+    "colorPalette": [],
+    "interactionStyle": "",
+    "designDecisions": [],
+    "designArtifacts": [],
+    "inspiration": [],
+    "iterations": []
+  },
+  "technology": {
+    "frontend": [],
+    "backend": [],
+    "database": [],
+    "stateManagement": [],
+    "animation": [],
+    "apis": [],
+    "integrations": [],
+    "deployment": [],
+    "testing": [],
+    "tools": []
+  },
+  "challenges": [],
+  "results": {
+    "verifiedMetrics": [],
+    "verifiedOutcomes": [],
+    "feedback": [],
+    "milestones": [],
+    "learnings": [],
+    "limitations": [],
+    "futureImprovements": []
+  },
+  "links": {
+    "live": null,
+    "github": null,
+    "documentation": null,
+    "demoVideo": null,
+    "appStore": null,
+    "googlePlay": null,
+    "related": [],
+    "external": []
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "canonicalUrl": null,
+    "ogTitle": "",
+    "ogDescription": "",
+    "ogImage": null,
+    "twitterImage": null,
+    "keywords": []
+  },
+  "caseStudy": { "sections": [] },
+  "aiMetadata": {
+    "generated": false,
+    "generatedAt": null,
+    "generator": "human-authored",
+    "generationVersion": "1.0.0",
+    "reviewStatus": "draft",
+    "approvedAt": null
+  }
+}

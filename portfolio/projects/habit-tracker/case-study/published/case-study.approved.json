@@ -1,0 +1,15 @@
+{
+  "draftId": null,
+  "projectId": "project-habit-tracker",
+  "projectSlug": "habit-tracker",
+  "workflowState": "approved",
+  "sections": [],
+  "aiMetadata": {
+    "generated": false,
+    "generatedAt": null,
+    "generator": "none",
+    "generationVersion": "1.0.0",
+    "reviewStatus": "approved",
+    "approvedAt": null
+  }
+}
